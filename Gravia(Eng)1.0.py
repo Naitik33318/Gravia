@@ -128,12 +128,12 @@ def takeCommand():
         return "None"
     return query
 
-def sendEmail(to, Krishna):
+def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('Enter your email.com', 'Krishna 2021')
-    server.sendmail('Enter your email.com', to, content)
+    server.login('example@gmail.com', 'Krishna 2021')
+    server.sendmail('example@gmail.com', to, content)
     server.close()
     
 if __name__ == "__main__":
@@ -281,7 +281,7 @@ if __name__ == "__main__":
                 speak("Bye. Check Out gravia for more exicting things") 
                 exit() 
 
-            elif 'email to Krishna' in query:
+            elif 'email to me' in query:
                 try:
                     speak("What should I say?")
                     content = takeCommand()
@@ -448,7 +448,8 @@ if __name__ == "__main__":
                 
             elif 'news' in query:
                 try:
-                    jsonObj = urlopen('''https://newsapi.org / v1 / articles?source = the-times-of-india&sortBy = top&apiKey =\\times of India Api key\\''')
+                    api = "You api key"
+                    jsonObj = urlopen(f'''https://newsapi.org / v1 / articles?source = the-times-of-india&sortBy = top&apiKey =\\{api}\\''')
                     data = json.load(jsonObj)
                     i = 1
                     
@@ -523,7 +524,7 @@ if __name__ == "__main__":
                 print("I was born on 10 bebruary 2021, timing 13:56:32") 
 
             elif "weather" in query:
-                api_key = "675001e5325417f1e97ace33821a9f77"
+                api_key = "You api"
                 base_url = "http://api.openweathermap.org/data/2.5/weather?"
                 speak(" City name ")
                 print("City name : ")
